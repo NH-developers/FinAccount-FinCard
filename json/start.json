@@ -1,0 +1,470 @@
+{
+	"swagger": "2.0",
+	"schemes" : ["https"],
+	"host": "developers.nonghyup.com",
+	"tags": [
+		{
+			"name": "1.시작하기"
+		}
+	],
+	"paths": {
+		"/OpenFinAccountDirect.nh": {
+			"post": {
+				"tags": [
+					"1.시작하기"
+				],
+				"summary": "핀-어카운트직접발급",
+				"description": "핀테크기업이 고객으로부터 직접 접수한 농협계좌에 대해 핀-어카운트 발급을 요청한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/OpenFinAccountDirectRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/CheckOpenFinAccountDirect.nh": {
+			"post": {
+				"tags": [
+					"1.시작하기"
+				],
+				"summary": "핀-어카운트직접발급확인",
+				"description": "핀-어카운트 직접발급을 확인한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/CheckOpenFinAccountDirectRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/OpenFinCardDirect.nh": {
+			"post": {
+				"tags": [
+					"1.시작하기"
+				],
+				"summary": "핀-카드직접발급",
+				"description": "핀테크기업이 고객으로부터 직접 접수한 농협 개인카드에 대해 핀-카드 발급을 요청한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/OpenFinCardDirectRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		},
+		"/CheckOpenFinCardDirect.nh": {
+			"post": {
+				"tags": [
+					"1.시작하기"
+				],
+				"summary": "핀-카드직접발급확인",
+				"description": "핀-카드를 직접 발급을 확인한다.",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "param",
+						"description": "param",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/CheckOpenFinCardDirectRequestData"
+						}
+					}
+				],
+				"responses": {
+					
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"CheckOpenFinCardDirectRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"Rgno",
+				"Brdt"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/CheckOpenFinCardDirectHeader"
+				},
+				"Rgno": {
+					"type": "string",
+					"example": "등록번호",
+					"description": "등록번호"
+				},
+				"Brdt": {
+					"type": "string",
+					"example": "생년월일을입력하세요",
+					"description": "생년월일(사업자번호)"
+				}
+			},
+			"title": "CheckOpenFinCardDirectRequestData"
+		},
+		"OpenFinCardDirectRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"Brdt",
+				"Cano"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/OpenFinCardDirectHeader"
+				},
+				"Brdt": {
+					"type": "string",
+					"example": "생년월일을입력하세요",
+					"description": "생년월일"
+				},
+				"Cano": {
+					"type": "string",
+					"example": "카드번호를입력하세요",
+					"description": "카드번호"
+				}
+			},
+			"title": "OpenFinCardDirectRequestData"
+		},
+		"CheckOpenFinAccountDirectRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"Rgno",
+				"BrdtBrno"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/CheckOpenFinAccountDirectHeader"
+				},
+				"Rgno": {
+					"type": "string",
+					"example": "등록번호를입력하세요",
+					"description": "등록번호"
+				},
+				"BrdtBrno": {
+					"type": "string",
+					"example": "생년월일을입력하세요",
+					"description": "생년월일(사업자번호)"
+				}
+			},
+			"title": "CheckOpenFinAccountDirectRequestData"
+		},
+		"OpenFinAccountDirectRequestData": {
+			"type": "object",
+			"required": [
+				"Header",
+				"DrtrRgyn",
+				"BrdtBrno",
+				"Bncd",
+				"Acno"
+			],
+			"properties": {
+				"Header": {
+					"$ref": "#/definitions/OpenFinAccountDirectHeader"
+				},
+				"DrtrRgyn": {
+					"type": "string",
+					"example": "Y",
+					"description": "출금이체 등록 여부"
+				},
+				"BrdtBrno": {
+					"type": "string",
+					"example": "생년월일을입력하세요",
+					"description": "생년월일(사업자번호)"
+				},
+				"Bncd": {
+					"type": "string",
+					"example": "은행코드를입력하세요",
+					"description": "은행코드"
+				},
+				"Acno": {
+					"type": "string",
+					"example": "계좌번호를입력하세요",
+					"description": "계좌번호"
+				}
+			},
+			"title": "OpenFinAccountDirectRequestData"
+		},
+		"OpenFinAccountDirectHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "OpenFinAccountDirect",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "DrawingTransferA",
+					"description": "API서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "OpenFinAccountDirectHeader",
+			"description": "공통부"
+		},
+		"CheckOpenFinAccountDirectHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "CheckOpenFinAccountDirect",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "DrawingTransferA",
+					"description": "API서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "CheckOpenFinAccountDirectHeader",
+			"description": "공통부"
+		},
+		"OpenFinCardDirectHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "OpenFinCardDirect",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "DrawingTransferA",
+					"description": "API서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "OpenFinCardDirectHeader",
+			"description": "공통부"
+		},
+		"CheckOpenFinCardDirectHeader": {
+			"type": "object",
+			"required": [
+				"AccessToken",
+				"ApiNm",
+				"ApiSvcCd",
+				"FintechApsno",
+				"IsTuno",
+				"Iscd",
+				"Trtm",
+				"Tsymd"
+			],
+			"properties": {
+				"ApiNm": {
+					"type": "string",
+					"example": "CheckOpenFinCardDirect",
+					"description": "API명"
+				},
+				"Tsymd": {
+					"type": "string",
+					"example": "오늘날짜를입력하세요",
+					"description": "전송일자"
+				},
+				"Trtm": {
+					"type": "string",
+					"example": "112428",
+					"description": "전송시각"
+				},
+				"Iscd": {
+					"type": "string",
+					"example": "기관코드를입력하세요",
+					"description": "기관코드"
+				},
+				"FintechApsno": {
+					"type": "string",
+					"example": "001",
+					"description": "핀테크앱일련번호"
+				},
+				"ApiSvcCd": {
+					"type": "string",
+					"example": "DrawingTransferA",
+					"description": "API서비스코드"
+				},
+				"IsTuno": {
+					"type": "string",
+					"example": "0000",
+					"description": "기관 거래고유번호"
+				},
+				"AccessToken": {
+					"type": "string",
+					"example": "인증키를입력하세요",
+					"description": "접근토큰"
+				}
+			},
+			"title": "CheckOpenFinCardDirectHeader",
+			"description": "공통부"
+		}
+	}
+}
